@@ -8,7 +8,7 @@
 		{
 			steps
 			{
-				sh "mvn --version"
+				
 				echo "Build"
 			}
 		}
