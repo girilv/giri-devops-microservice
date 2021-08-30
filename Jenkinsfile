@@ -25,5 +25,24 @@
 			}
 		}	 
 	 }
+	 post
+	 {
+		always
+		{
+			 echo "I run always"
+		}
+		success
+		{
+			echo "on success"
+		}
+		failure
+		{
+			echo "on failure"
+		}
+
+
+			
+
+	 }
 	
 }
