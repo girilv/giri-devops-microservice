@@ -59,7 +59,7 @@
 		{
 			steps
 			{
-					docker build -t "girilv/giri-devops-microservice.git:$env.BUILD_TAG"
+				docker build -t "girilv/giri-devops-microservice.git:$env.BUILD_TAG"
 			}
 		}
 
