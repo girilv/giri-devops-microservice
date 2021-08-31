@@ -54,18 +54,18 @@
 				sh "mvn package"
 			}
 		}
+
 		stage('Docker Build') 
 		{
 			steps
 			{
-				script
-				{
-
-					dockerImage = docker.build("girilv/giri-devops-microservice.git:$env.BUILD_TAG")
+				
+					docker build -t "girilv/giri-devops-microservice.git:$env.BUILD_TAG"
 					
-				}
+				
 			}
 		}
+
 		stage('Push Docker Image') 
 		{
 			script
