@@ -59,20 +59,26 @@
 		{
 			steps
 			{
-				docker build -t "girilv/giri-devops-microservice.git:$env.BUILD_TAG"
+				script
+				{
+					docker.build("girilv/giri-devops-microservice.git:$(env.BUILD_TAG"))
+				}
 			}
 		}
 
 		stage('Push Docker Image') 
 		{
-			script
+			steps
 			{
-				docker.withRegistry("","dockerhub")
+				script
 				{
-					dockerImage.push();
-					dockerImage.push("latest");
-				}
+					docker.withRegistry("","dockerhub")
+					{
+						dockerImage.push();
+						dockerImage.push("latest");
+					}
 
+				}
 			}
 		}		
 
