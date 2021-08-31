@@ -46,7 +46,39 @@
 			{
 				sh "mvn failsafe:integration-test failsafe:verify"
 			}
-		}	 
+		}
+		stage('Package') 
+		{
+			steps
+			{
+				sh "mvn package"
+			}
+		}
+		stage('Docker Build') 
+		{
+			steps
+			{
+				script
+				{
+
+					dockerImage = docker.build("girilv/giri-devops-microservice.git:$(env.BUILD_TAG")
+					
+				}
+			}
+		}
+		stage('Push Docker Image') 
+		{
+			script
+			{
+				docker.withRegistry("","dockerhub")
+				{
+					dockerImage.push()
+					dockerImage.push("latest")
+				}
+
+			}
+		}		
+
 	 }
 	 post
 	 {
