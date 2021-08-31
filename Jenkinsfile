@@ -15,8 +15,8 @@
 		{
 			steps
 			{
-				echo "mvn --version"
-				echo "docker version"
+				sh "mvn --version"
+				sh "docker version"
 				echo "Build"
 				echo "$PATH"
 				echo "$env.BUILD_TAG"
