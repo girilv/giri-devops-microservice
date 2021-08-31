@@ -61,7 +61,7 @@
 				script
 				{
 
-					dockerImage = docker.build("girilv/giri-devops-microservice.git:$(env.BUILD_TAG)"
+					dockerImage = docker.build("girilv/giri-devops-microservice.git:$(env.BUILD_TAG)")
 					
 				}
 			}
