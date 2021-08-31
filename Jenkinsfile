@@ -8,11 +8,14 @@
 		{
 			steps
 			{
-				sh "node --version"
+				
 				echo "Build"
 				echo "$PATH"
 				echo "$env.BUILD_TAG"
 				echo "$env.JOB_NAME"
+				echo "$env.BUILD_NUMBER"
+				echo "$env.BUILD_ID"
+
 			}
 		}
 		stage('Test') 
