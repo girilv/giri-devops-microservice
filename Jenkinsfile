@@ -30,29 +30,30 @@
 	
 
 	
-	stage('Compile') 
-	{
-		steps
+		stage('Compile') 
+		{
+			steps
 
 	 		{
 	 			sh "mvn package"
 	 		}
-	}
+		}
 
-	stage('Docker Build') 
-	{
-		steps
+		stage('Docker Build') 
 		{
-			script
-	 		{
+			steps
+			{
+				script
+	 			{
 		
 	 				dockerImage = docker.build("girilv/giri-devops-microservice.git:$env.BUILD_TAG")
+				}
 			}
+		
 		}
-	}
 
-	stage('Push Docker Image') 
-	{
+		stage('Push Docker Image') 
+		{
 	 		steps
 	 		{
 	 			script
@@ -67,25 +68,25 @@
 		}
 	}		
 
-	//  }
-	//  post
-	//  {
-	// 	always
-	// 	{
-	// 		 echo "I run always"
-	// 	}
-	// 	success
-	// 	{
-	// 		echo "on success"
-	// 	}
-	// 	failure
-	// 	{
-	// 		echo "on failure"
-	// 	}
+	
+	post
+	{
+	 	always
+	 	{
+	 		 echo "I run always"
+	 	}
+	 	success
+	 	{
+	 		echo "on success"
+	 	}
+	 	failure
+	 	{
+	 		echo "on failure"
+		}
 
 
 			
 
-	//  }
+	}
 	
 }
