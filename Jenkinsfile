@@ -1,6 +1,7 @@
  pipeline
  {
-	agent {docker {image 'maven:3.6.3'}}
+	 agent any
+	//agent {docker {image 'maven:3.6.3'}}
 	//agent { docker { image 'node:13.8'} }
 	  environment
 	  {
@@ -20,6 +21,7 @@
 				echo "Build"
 				echo "$PATH"
 				sh "mvn --version"
+				sh "docker version"
 				echo "$env.BUILD_TAG"
 	 			echo "$env.JOB_NAME"
  				echo "$env.BUILD_NUMBER"
