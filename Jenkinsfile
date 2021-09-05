@@ -9,12 +9,12 @@
 	 	 PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 	  }
 	 
-	 stages
-	 {
-		 stage("Build")
-		 {
-			 steps
-			 {
+	stages
+	{
+		stage("Build")
+		{
+			steps
+			{
 				echo "First one"
 				echo "Build"
 				echo "$PATH"
@@ -24,9 +24,9 @@
  				echo "$env.BUILD_NUMBER"
  				echo "$env.BUILD_ID"
 
-			 }
-		 }
-	 }
+			}
+		}
+	}
 	
 
 	
