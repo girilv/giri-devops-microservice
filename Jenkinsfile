@@ -58,6 +58,14 @@
 	 		}
 		}
 
+		stage('Package') 
+		{
+			steps
+	 		{
+	 			sh "mvn package --DskipTests"
+	 		}
+		}
+
 
 		stage('Docker Build') 
 		{
@@ -78,10 +86,11 @@
 	 		{
 	 			script
 	 			{
-	 				docker.withRegistry("","dockerhub") 				
- 					dockerImage.push();
- 					dockerImage.push("latest")
-					 
+	 				docker.withRegistry("","dockerhub") 	
+					{		
+ 						dockerImage.push();
+ 						dockerImage.push("latest")
+					}
 				}
 
 			}
