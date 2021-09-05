@@ -33,7 +33,6 @@
 		stage('Compile') 
 		{
 			steps
-
 	 		{
 	 			sh "mvn package"
 	 		}
@@ -58,7 +57,7 @@
 	 		{
 	 			script
 	 			{
-	 				docker.withRegistry("","dockerhub") 				{
+	 				docker.withRegistry("","dockerhub") 				
  					dockerImage.push();
  					dockerImage.push("latest")
 					 
