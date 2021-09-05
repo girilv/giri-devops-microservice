@@ -10,7 +10,7 @@
 				echo "First one"
 				echo "Build"
 				echo "$PATH"
-				sudo sh "mvn --version"
+				//sh "mvn --version"
 				echo "$env.BUILD_TAG"
 	 			echo "$env.JOB_NAME"
  				echo "$env.BUILD_NUMBER"
